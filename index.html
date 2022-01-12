@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+	<h2>Modal - NVDA announcements</h2>
+
+	<button id="openModalBtn" onclick="showModal()">(Focus Button)</button>
+	<button id="openModalBtnField" onclick="showModalField()">(Focus Field)</button>
+	<div id="modal" role="dialog" aria-modal="true" aria-labelledby="dialog-heading" style="display:none;width: 500px;height: 500px;background-color: beige;border:black thin solid">
+		<h1 id="dialog-heading">My modal</h1>
+		<button id="closeModalBtn" onclick="hideModal()"> Close</button>
+		<br>
+		<br>
+		<input id="modalField"/>
+		<p>EL modal con NVDA se ve de esta forma</p>
+
+	</div>
+
+	<script>
+		const modal = document.querySelector("#modal")
+		const openModalBtn = document.querySelector("#openModalBtn")
+		const openModalBtnField = document.querySelector("#openModalBtnField")
+
+		const closeModalBtn = document.querySelector("#closeModalBtn")
+		const modalField = document.querySelector("#modalField")
+
+
+		const showModal = () => {
+			modal.style.display="block"
+			setTimeout(()=>{closeModalBtn.focus()},10)
+			//setTimeout(()=>{modalField.focus()},10)
+		}
+		const showModalField = () => {
+			modal.style.display="block"
+			//setTimeout(()=>{closeModalBtn.focus()},10)
+			setTimeout(()=>{modalField.focus()},10)
+		}
+		const hideModal = () => {
+			modal.style.display="none"
+			setTimeout(()=>{openModalBtn.focus()},10)
+		}
+		</script>
+</body>
+</html>
